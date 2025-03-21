@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Symfony\Component\HttpFoundation\Response;
+use Barryvdh\Debugbar\Facades\Debugbar;
 
 class LocalizationMiddleware
 {
@@ -16,10 +17,16 @@ class LocalizationMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (! Schema::hasTable('users')) {
+        if (!Schema::hasTable('users')) {
             return $next($request);
         }
+
+        if ($request->path() == 'offline' && class_exists(Debugbar::class)) {
+            Debugbar::disable();
+        }
+
         $locale = 'en';
+
         $user = auth()->user();
         if ($user) {
             $locale = $user->profile->locale ?? 'en';

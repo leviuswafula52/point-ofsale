@@ -4,23 +4,25 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
+use Illuminate\Http\JsonResponse;
 
 class RegisteredUserController extends Controller
 {
-    public function __invoke(RegisterRequest $request)
+    public function store(RegisterRequest $request): JsonResponse
     {
         $tenant = $request->register();
+
         if ($tenant) {
             return response()->json([
                 'success' => true,
-                'message' => 'Success!',
+                'message' => 'User registered successfully!',
                 'data' => $tenant,
-            ]);
+            ], 201);
         }
 
         return response()->json([
             'success' => false,
-            'message' => 'Failed!',
-        ]);
+            'message' => 'Registration failed!',
+        ], 400);
     }
 }
