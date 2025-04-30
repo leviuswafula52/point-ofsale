@@ -45,8 +45,8 @@
 * **Frontend** (Mobile): [Flutter](https://flutter.github.io)
 
 ## Installation
-1. Clone the repository: git clone https://github.com/lakasir/lakasir.git
-2. Navigate to the project directory: cd lakasir
+1. Clone the repository: git clone https://github.com/leviuswafula52/point-ofsale.git
+2. Navigate to the project directory: cd point-ofsale
 3. Install dependencies:
 4. Laravel:
    * `composer install`
@@ -69,7 +69,7 @@
 
 We welcome contributions from the community! If you'd like to contribute to Lakasir, please follow these steps:
 
-1. keep on eye on [project board](https://github.com/orgs/lakasir/projects/2/views/1)
+1. keep on eye on [project board](https://github.com/leviuswafula52/point-ofsale.git)
 2. Fork the repository.
 3. Create a new branch (git checkout -b feature/new-feature). 
 4. Make your changes and commit them (git commit -am 'Add new feature').
