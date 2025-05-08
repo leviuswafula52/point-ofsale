@@ -63,7 +63,7 @@ class Profile extends Model
                 ->label(__('Language'))
                 ->selectablePlaceholder(false)
                 ->options([
-                    'id' => 'Bahasa Indonesia',
+                    'id' => 'English United States',
                     'en' => 'English',
                 ]),
             FileUpload::make('photo')

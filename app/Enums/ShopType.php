@@ -14,5 +14,13 @@ enum ShopType: string
 
     case Pharmacy = 'pharmacy';
 
+    case electronics = 'electronics';
+
+    case restaurant = 'restaurant';
+
+    case Boutique = 'Boutique';
+
+    case mama mboga = 'mama mboga';
+
     case Other = 'other';
 }

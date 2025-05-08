@@ -11,3 +11,4 @@ class PrintProductLabel
         return true;
     }
 }
+

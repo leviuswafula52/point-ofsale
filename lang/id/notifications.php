@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 return [
     'stocks' => [
-        'single-runs-out' => 'Stok :product mau habis',
-        'single-out-of-stock' => 'Stok :product sudah habis',
-        'multiple-runs-out' => 'Ada :count produk yang mau habis',
-        'field_stock' => 'Stok tinggal :stock',
-        'title' => 'Stokmu mau habis!',
+        'single-runs-out' => 'Stock for :product is running low',
+        'single-out-of-stock' => ':product is out of stock',
+        'multiple-runs-out' => 'There are :count products running low',
+        'field_stock' => 'Only :stock remaining',
+        'title' => 'Your stock is running low!',
     ],
 ];

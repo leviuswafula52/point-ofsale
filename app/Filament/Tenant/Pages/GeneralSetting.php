@@ -92,8 +92,11 @@ class GeneralSetting extends Page implements HasActions, HasForms
                         ->schema([
                             Select::make('currency')
                                 ->options([
-                                    'IDR' => 'IDR',
+                                    'KSH' => 'KSH',
                                     'USD' => 'USD',
+                                    'EUR' => 'EUR',
+                                    'UGX' => 'UGX',
+                                    'TZS' => 'TZS',
                                 ])
                                 ->translateLabel(),
                             Select::make('minimum_stock_nofication')

@@ -77,7 +77,7 @@ class Cashier extends Page implements HasForms, HasTable
 
         $this->tax = (float) Setting::get('default_tax', 0);
 
-        $this->currency = Setting::get('currency', 'IDR');
+        $this->currency = Setting::get('currency', 'KSH');
 
         $this->cartItems = CartItem::query()
             ->select('*')
@@ -161,7 +161,7 @@ class Cashier extends Page implements HasForms, HasTable
                     ->mask(RawJs::make('$money($input)'))
                     ->stripCharacters(',')
                     ->numeric()
-                    ->prefix(Setting::get('currency', 'IDR'))
+                    ->prefix(Setting::get('currency', 'KSH'))
                     ->extraAttributes([
                         'id' => 'discountInput',
                         'class' => 'hidden',

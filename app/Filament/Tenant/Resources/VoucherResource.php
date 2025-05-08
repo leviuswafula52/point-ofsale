@@ -75,7 +75,7 @@ class VoucherResource extends Resource
                     ->stripCharacters(',')
                     ->numeric()
                     ->mask(RawJs::make('$money($input)'))
-                    ->prefix(Setting::get('currency', 'IDR'))
+                    ->prefix(Setting::get('currency', 'KSH'))
                     ->required(),
             ]);
     }

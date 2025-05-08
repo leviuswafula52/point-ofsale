@@ -30,7 +30,7 @@ class AboutController extends Controller
 
         $aboutService->createOrUpdate($request->all());
 
-        Setting::set('currency', $request->currency ?? 'IDR');
+        Setting::set('currency', $request->currency ?? 'KSH');
 
         return $this->buildResponse()
             ->setMessage('About updated successfully')

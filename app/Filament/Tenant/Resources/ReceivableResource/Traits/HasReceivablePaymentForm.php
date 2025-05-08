@@ -23,7 +23,7 @@ trait HasReceivablePaymentForm
                 ->translateLabel()
                 ->mask(RawJs::make('$money($input)'))
                 ->stripCharacters(',')
-                ->prefix(Setting::get('currency', 'IDR'))
+                ->prefix(Setting::get('currency', 'KSH'))
                 ->lte($receivable->rest_receivable, true)
                 ->required(),
             DatePicker::make('date')

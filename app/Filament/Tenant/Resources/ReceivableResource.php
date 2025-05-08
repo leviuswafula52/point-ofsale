@@ -43,10 +43,10 @@ class ReceivableResource extends Resource
                     ->translateLabel()
                     ->searchable(),
                 TextColumn::make('total_receivable')
-                    ->money(Setting::get('currency', 'IDR'))
+                    ->money(Setting::get('currency', 'KSH'))
                     ->translateLabel(),
                 TextColumn::make('rest_receivable')
-                    ->money(Setting::get('currency', 'IDR'))
+                    ->money(Setting::get('currency', 'KSH'))
                     ->translateLabel(),
                 TextColumn::make('due_date')
                     ->translateLabel()
@@ -101,10 +101,10 @@ class ReceivableResource extends Resource
                 ->translateLabel(),
             TextEntry::make('total_receivable')
                 ->translateLabel()
-                ->money(Setting::get('currency', 'IDR')),
+                ->money(Setting::get('currency', 'KSH')),
             TextEntry::make('rest_receivable')
                 ->translateLabel()
-                ->money(Setting::get('currency', 'IDR')),
+                ->money(Setting::get('currency', 'KSH')),
             TextEntry::make('due_date')
                 ->translateLabel()
                 ->date(),

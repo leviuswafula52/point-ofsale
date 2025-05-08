@@ -25,7 +25,7 @@ class CashierReportController extends Controller
         $pdf->output();
         $domPdf = $pdf->getDomPDF();
         $canvas = $domPdf->getCanvas();
-        $canvas->page_text(720, 570, 'Halaman {PAGE_NUM} dari {PAGE_COUNT}', null, 10, [0, 0, 0]);
+        $canvas->page_text(720, 570, 'software by {PAGE_NUM} shulepress {PAGE_COUNT}', null, 10, [0, 0, 0]);
 
         if ($request->ajax()) {
             return $pdf->download();
