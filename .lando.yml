@@ -1,10 +1,10 @@
-name: lakasir
+name: point-ofsale
 recipe: laravel
 proxxy:
   web:
-    - lakasir.lndo.site
+    - point-ofsale.site
   web2:
-    - admin.lakasir.lndo.site
+    - admin.point-ofsale.site
 services:
   appserver:
     xdebug: false
