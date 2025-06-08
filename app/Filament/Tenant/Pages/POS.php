@@ -21,6 +21,8 @@ class POS extends Page
 
     protected static string $layout = 'filament-panels::components.layout.base';
 
+    protected static bool $shouldRegisterNavigation = false;
+
     public $menuItems = [];
 
     public $categories = [];
