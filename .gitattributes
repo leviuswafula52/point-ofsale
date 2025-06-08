@@ -1,0 +1,25 @@
+# Auto-detect line endings (convert to LF in repo, OS-specific on checkout)
+* text=auto
+
+# Force LF line endings for specific files
+*.js text eol=lf
+*.json text eol=lf
+*.lock text eol=lf
+yarn.lock text eol=lf
+
+# Mark these files as vendored code (excluded from GitHub language stats)
+*.css linguist-vendored
+*.scss linguist-vendored
+*.js linguist-vendored
+
+# Exclude from export archives
+CHANGELOG.md export-ignore
+
+# Binary files should not be modified
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
