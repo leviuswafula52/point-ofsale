@@ -6,6 +6,14 @@ use App\Models\Tenants\User;
 use Filament\Facades\Filament;
 use Illuminate\Support\Number;
 
+
+if (! function_exists('feature')) {
+    function feature($feature)
+    {
+        return true;
+    }
+}
+
 if (! function_exists('hasFeatureAndPermission')) {
     function hasFeatureAndPermission(string $feature, ?string $permission = null): bool
     {

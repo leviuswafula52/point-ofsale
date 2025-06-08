@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Laravel\Pennant\Feature;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -23,7 +22,7 @@ class AuthenticatedSessionController extends Controller
             'data' => array_merge($user->toArray(), [
                 'token' => $token->plainTextToken,
                 'permissions' => $user->roles()->first()->permissions()->where('guard_name', 'sanctum')->pluck('name')->toArray(),
-                'features' => Feature::all(),
+                'features' => [],
             ]),
         ]);
     }

@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('PENNANT_STORE', 'database'),
+    'default' => env('PENNANT_STORE', 'array'),
 
     /*
     |--------------------------------------------------------------------------
@@ -36,7 +36,7 @@ return [
 
         'database' => [
             'driver' => 'database',
-            'connection' => null,
+            'connection' => 'sqlite',
             'table' => 'features',
         ],
 

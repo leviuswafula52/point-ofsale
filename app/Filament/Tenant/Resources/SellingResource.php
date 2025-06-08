@@ -70,12 +70,12 @@ class SellingResource extends Resource
                 TextColumn::make('tax_price')
                     ->translateLabel()
                     ->sortable()
-                    ->visible(feature(ProductInitialPrice::class))
+                    ->visible(true)
                     ->money(Setting::get('currency', 'KSH')),
                 TextColumn::make('total_cost')
                     ->translateLabel()
                     ->sortable()
-                    ->visible(feature(ProductInitialPrice::class))
+                    ->visible(true)
                     ->money(Setting::get('currency', 'KSH')),
             ])
             ->searchPlaceholder('Search (Code, User, Customer Number')

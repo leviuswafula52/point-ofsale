@@ -72,7 +72,7 @@ use App\Features\{PaymentShortcutButton, SellingTax, Discount};
               </div>
               <div class="grid grid-cols-2 items-center text-right space-y-2">
                 <div class="col-span-2">
-                  @feature(Discount::class)
+                 
                   <div class="flex justify-end">
                     <x-filament::input.wrapper class="w-1/2">
                       <x-filament::input
@@ -87,7 +87,7 @@ use App\Features\{PaymentShortcutButton, SellingTax, Discount};
                         />
                       </x-filament::input.wrapper>
                   </div>
-                  @endfeature
+                  
                   @if($item->discount_price && $item->discount_price > 0)
                     <p class="font-semibold text-lakasir-primary">{{ $item->final_price_format }}</p>
                   @endif
@@ -137,11 +137,13 @@ use App\Features\{PaymentShortcutButton, SellingTax, Discount};
             </div>
           @endforelse
         </div>
+       
         <div>
           <div class="bg-white px-4 py-2 w-full border rounded-lg dark:border-gray-900 dark:bg-gray-900 dark:text-white text-gray-600">
             @include('filament.tenant.pages.cashier.detail')
           </div>
         </div>
+        
         <div>
           <div class="bg-white px-4 py-2 w-full border rounded-lg dark:border-gray-900 dark:bg-gray-900 dark:text-white text-gray-600">
             @include('filament.tenant.pages.cashier.total')
@@ -151,6 +153,7 @@ use App\Features\{PaymentShortcutButton, SellingTax, Discount};
           class="py-4 px-2 bg-lakasir-primary text-white rounded-lg w-full"
           x-on:mousedown="$dispatch('open-modal', {id: 'proceed-the-payment'})"
           >{{ __('Proceed to payment') }}</button>
+          
       </div>
     </div>
   </div>
@@ -169,6 +172,7 @@ use App\Features\{PaymentShortcutButton, SellingTax, Discount};
     </x-filament::button>
     </form>
   </x-filament::modal>
+
   <x-filament::modal
     id="proceed-the-payment"
     width="5xl">
@@ -392,13 +396,13 @@ use App\Features\{PaymentShortcutButton, SellingTax, Discount};
         });
         printerAction
           .text('-------------------------------');
-        if("@js(feature(SellingTax::class))" == 'true') {
+        if(true) {
           printerAction.table(['@lang('Tax')', `${selling.tax}%`])
             .table(['@lang('Tax price')', moneyFormat(selling.tax_price)]);
         }
         printerAction
           .table(['@lang('Subtotal')', moneyFormat(selling.total_price)])
-        if("@js(feature(Discount::class))" == 'true') {
+        if(true) {
           printerAction
             .table(['@lang('Discount')', `(${moneyFormat(selling.total_discount_per_item + selling.discount_price)})`])
         }
@@ -542,7 +546,7 @@ use App\Features\{PaymentShortcutButton, SellingTax, Discount};
       input.classList.remove('hidden');
     }
     let totalPrice = $refs.total.getAttribute('data-value');
-    if("@js(feature(PaymentShortcutButton::class))" == 'true') {
+    if(true) {
       generateButton(totalPrice);
     }
     modalOpened = true;

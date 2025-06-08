@@ -28,7 +28,6 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Pennant\Feature;
 
 class ProductResource extends Resource
 {
@@ -78,7 +77,7 @@ class ProductResource extends Resource
                 TextColumn::make('sku')
                     ->searchable()
                     ->toggleable()
-                    ->visible(Feature::active(ProductSku::class)),
+                    ->visible(true),
                 TextColumn::make('barcode')
                     ->hidden()
                     ->searchable()
@@ -87,13 +86,13 @@ class ProductResource extends Resource
                 TextColumn::make('stock')
                     ->toggleable()
                     ->translateLabel()
-                    ->visible(Feature::active(ProductStock::class))
+                    ->visible(true)
                     ->sortable(),
                 TextColumn::make('unit')
                     ->toggleable()
                     ->translateLabel(),
                 TextColumn::make('initial_price')
-                    ->visible(Feature::active(ProductInitialPrice::class))
+                    ->visible(true)
                     ->translateLabel()
                     ->sortable()
                     ->money(Setting::get('currency', 'KSH')),
@@ -102,16 +101,16 @@ class ProductResource extends Resource
                     ->sortable()
                     ->money(Setting::get('currency', 'KSH')),
                 TextColumn::make('net_profit')
-                    ->visible(Feature::active(ProductInitialPrice::class))
+                    ->visible(true)
                     ->translateLabel()
                     ->sortable()
                     ->money(Setting::get('currency', 'KSH')),
                 TextColumn::make('type')
-                    ->visible(Feature::active(ProductType::class))
+                    ->visible(true)
                     ->translateLabel(),
                 ToggleColumn::make('is_non_stock')
                     ->toggleable()
-                    ->visible(Feature::active(ProductStock::class))
+                    ->visible(true)
                     ->translateLabel(),
             ])
             ->searchPlaceholder(__('Search (SKU, name, barcode)'))

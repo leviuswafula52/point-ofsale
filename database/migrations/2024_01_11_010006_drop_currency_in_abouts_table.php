@@ -11,14 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Manually check if the column exists using raw SQL
-        $columnExists = DB::select("SHOW COLUMNS FROM abouts LIKE 'currency'");
-
-        if (!empty($columnExists)) {
-            Schema::table('abouts', function (Blueprint $table) {
-                $table->dropColumn('currency');
-            });
-        }
+        
     }
 
     /**
@@ -26,10 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('abouts', function (Blueprint $table) {
-            if (!Schema::hasColumn('abouts', 'currency')) {
-                $table->string('currency')->default('IDR')->after('shop_location');
-            }
-        });
+        
     }
 };

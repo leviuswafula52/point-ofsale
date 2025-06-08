@@ -18,7 +18,6 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Set;
 use Filament\Support\RawJs;
-use Laravel\Pennant\Feature;
 
 trait HasProductForm
 {
@@ -84,12 +83,11 @@ trait HasProductForm
     public function generateInitialPriceFormComponent(): TextInput
     {
         return TextInput::make('initial_price')
-            ->visible(Feature::active(ProductInitialPrice::class))
+            ->visible(true)
             ->translateLabel()
             ->mask(RawJs::make('$money($input)'))
             ->lte('selling_price')
             ->default(0)
-            // ->visible(Feature::active(Product))
             ->stripCharacters(',')
             ->numeric()
             ->prefix(Setting::get('currency', 'KSH'))
@@ -108,7 +106,7 @@ trait HasProductForm
     {
         return TextInput::make('sku')
             ->translateLabel()
-            ->visible(Feature::active(ProductSku::class))
+            ->visible(true)
             ->helperText(__('Leave it blank to auto generate'));
     }
 
@@ -117,7 +115,7 @@ trait HasProductForm
         return TextInput::make('stock')
             ->translateLabel()
             ->numeric()
-            ->visible(Feature::active(ProductStock::class))
+            ->visible(true)
             ->disabled(function ($get) {
                 return $get('is_non_stock') || $get('type') == 'service';
             })
@@ -132,7 +130,7 @@ trait HasProductForm
                 'product' => 'Product',
                 'service' => 'Service',
             ])
-            ->visible(Feature::active(ProductType::class))
+            ->visible(true)
             ->afterStateUpdated(function (mixed $state, Set $set) {
                 if ($state == 'service') {
                     $set('stock', 0);
@@ -148,7 +146,7 @@ trait HasProductForm
     {
         return TextInput::make('barcode')
             ->helperText(__('Point the cursor to this input first then scan the barcode'))
-            ->visible(Feature::active(ProductBarcode::class))
+            ->visible(true)
             ->translateLabel();
     }
 
@@ -156,7 +154,7 @@ trait HasProductForm
     {
         return Checkbox::make('is_non_stock')
             ->translateLabel()
-            ->visible(Feature::active(ProductStock::class))
+            ->visible(true)
             ->live()
             ->afterStateUpdated(function ($state, $set) {
                 if ($state) {
@@ -169,7 +167,7 @@ trait HasProductForm
     {
         return DatePicker::make('expired')
             ->visible(function (string $operation) {
-                return Feature::active(ProductExpired::class) && $operation == 'create';
+                return true && $operation == 'create';
             })
             ->rule('after:now')
             ->required()

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('debt_items', function (Blueprint $table) {
+        Schema::create('receivable_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->constrained();
-            $table->foreignId('debt_id')->constrained();
+            $table->foreignId('receivable_id')->constrained();
             $table->double('amount');
             $table->double('price');
             $table->double('subtotal');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('debt_items');
+        Schema::dropIfExists('receivable_items');
     }
 };

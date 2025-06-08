@@ -15,6 +15,7 @@
       <p class="font-bold">{{ $cartDetail['member_label'] ?? 'No Member Selected' }}</p>
     </div>
   @endfeature
+  
   <div class="flex justify-between hover:underline cursor-pointer"
       x-on:mousedown="$dispatch('open-modal', {
        id: 'edit-detail',
@@ -25,6 +26,7 @@
     <p>{{ __('Note') }}</p>
     <div>{!! $cartDetail['note'] ?? '-' !!}</div>
   </div>
+   
   @if($about && $about->business_type == 'fnb')
     <div class="flex justify-between hover:underline cursor-pointer"
         x-on:mousedown="$dispatch('open-modal', {
@@ -34,6 +36,7 @@
       <div>{!! $cartDetail['table_id'] ?? '-' !!}</div>
     </div>
   @endif
+  
   @feature(Voucher::class)
   <div class="flex justify-between">
     <div>
@@ -59,7 +62,8 @@
     </div>
   </div>
   @endfeature
-  @feature(Discount::class)
+  
+  
   <div class="flex justify-between hover:underline cursor-pointer"
       x-on:mousedown="$dispatch('open-modal', {
         id: 'edit-detail',
@@ -70,6 +74,6 @@
     <p>{{ __('Discount') }}</p>
     <div>{{ $cartDetail['discount_price'] ?? '-' }}</div>
   </div>
-  @endfeature
+  
 </div>
 

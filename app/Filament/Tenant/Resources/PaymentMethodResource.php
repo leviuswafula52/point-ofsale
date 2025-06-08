@@ -15,7 +15,6 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Laravel\Pennant\Feature;
 
 class PaymentMethodResource extends Resource
 {
@@ -118,6 +117,6 @@ class PaymentMethodResource extends Resource
 
     public static function canViewAny(): bool
     {
-        return ! (! Feature::active(FeaturesPaymentMethod::class)) ?? Filament::auth()->user()->can('read payment method');
+        return Filament::auth()->user()->can('read payment method');
     }
 }

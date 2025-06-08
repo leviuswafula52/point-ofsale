@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Pennant\Feature;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Blade::if('feature', function ($feature) {
+            return true; // Always return true
+        });
+        
         Builder::macro('filter', function (Request $request) {
             /* WIP:  <07-08-22, sheenazien8> */
             $columns = $request->filters;
@@ -61,8 +65,5 @@ class AppServiceProvider extends ServiceProvider
 
             $this->loadMigrationsFrom($directories);
         }
-
-        Feature::resolveScopeUsing(fn ($driver) => null);
-        Feature::discover();
     }
 }

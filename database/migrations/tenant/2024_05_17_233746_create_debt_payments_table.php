@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('debt_payments', function (Blueprint $table) {
+        Schema::create('receivable_payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('payment_method_id')->constrained();
-            $table->foreignId('debt_id')->constrained();
+            $table->foreignId('receivable_id')->constrained();
             $table->double('amount');
             $table->double('last_debt');
             $table->date('date');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('debt_payments');
+        Schema::dropIfExists('receivable_payments');
     }
 };

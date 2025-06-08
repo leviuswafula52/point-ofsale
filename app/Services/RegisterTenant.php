@@ -6,7 +6,7 @@ use App\Constants\Role;
 use App\Models\Tenants\About;
 use App\Models\Tenants\User;
 use App\Notifications\DomainCreated;
-use App\Models\Tenant;
+use App\Tenant;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Exception;
@@ -57,7 +57,7 @@ class RegisterTenant
                 ]);
 
                 // Notify User
-                $user->notify(new DomainCreated());
+                //$user->notify(new DomainCreated());
 
                 // Seed Initial Data
                 $this->seedDatabase();

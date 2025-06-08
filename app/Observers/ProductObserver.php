@@ -7,7 +7,6 @@ use App\Models\Tenants\Product;
 use App\Services\Tenants\StockService;
 use Illuminate\Contracts\Validation\DataAwareRule;
 use Illuminate\Support\Str;
-use Laravel\Pennant\Feature;
 
 class ProductObserver extends AbstractObserver implements DataAwareRule
 {
@@ -46,7 +45,7 @@ class ProductObserver extends AbstractObserver implements DataAwareRule
 
     public function created(Product $product)
     {
-        if (! Feature::active(ProductStock::class)) {
+        if (true) {
             $product->is_non_stock = true;
         }
         if (! $product->sku) {

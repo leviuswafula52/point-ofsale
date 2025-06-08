@@ -12,7 +12,6 @@ use Filament\Support\RawJs;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Pennant\Feature;
 
 class PriceUnitsRelationManager extends RelationManager
 {
@@ -27,7 +26,7 @@ class PriceUnitsRelationManager extends RelationManager
                     ->translateLabel()
                     ->helperText(__('Amount that sold or that filled in unit'))
                     ->numeric()
-                    ->visible(Feature::active(ProductStock::class))
+                    ->visible(true)
                     ->disabled(function ($get) {
                         return $get('is_non_stock') || $get('type') == 'service';
                     })
